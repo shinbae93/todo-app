@@ -1,0 +1,26 @@
+<%- include("./partials/header.ejs") %>
+
+<div class="container mt-5">
+  <form action="/add/task" method="POST" class="d-flex">
+    <input type="text" name="task" class="form-control" placeholder="Enter your task...">
+    <input type="submit" value="Add Task" class="btn btn-sm btn-primary ml-2">
+  </form>
+
+  <ul class="list-group my-5">
+    <% task.forEach(tasks => { %>
+      <li class="list-group-item list-group-item-action">
+        <%=tasks.task %>
+        <div class="float-right">
+          <a href="/edit/task/<%= tasks._id %>" class="text-decoration-none">
+            <i class="fa-solid fa-pen-to-square mx-3"></i>
+          </a>
+          <a href="/delete/task/<%= tasks._id %>" class="text-decoration-none">
+            <i class="fa-solid fa-trash-can text-danger"></i>
+          </a>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+</div>
+
+<%- include("./partials/footer.ejs") %>

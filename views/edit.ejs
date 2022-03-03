@@ -1,0 +1,13 @@
+<%- include("./partials/header.ejs") %>
+
+<div class="container mt-5">
+    <form action="/edit/task/<%= task._id %>" method="POST">
+        <div class="form-group">
+            <label for="task">Todo task</label>
+            <input type="text" class="form-control" id="task" placeholder="Update your task..." value="<%= task.task %>" name="task">
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>
+
+<%- include("./partials/footer.ejs") %> 
